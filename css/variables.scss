@@ -1,0 +1,141 @@
+/*************** 1.Variables ***************/
+$white: #ffffff;
+$black: #000000;
+
+$light-bg: #f7fafe;
+$border-bg: #cddcea;
+
+
+$primary-color: #0066ff;
+$secondary-color: #e83e8c;
+
+
+// $primary-color: #be1e2c;
+// $secondary-color: #313131;
+
+
+// $primary-color: #3d424b;
+// $secondary-color: #f1c023;
+
+
+// $primary-color: #00887A;
+// $secondary-color: #ffd746;
+
+
+// $primary-color: #4056A1;
+// $secondary-color: #D79922;
+
+
+// $primary-color: #413ea4;
+// $secondary-color: #fd4f57;
+
+
+// $primary-color: #2348ab;
+// $secondary-color: #009966;
+
+
+
+
+
+$red: #ff4f57;
+$green: #13a98c;
+$yellow: #ffbb3e;
+$blue: #0066ff;
+// $blue: #007bff;
+
+
+
+
+/*************** 2.Mixins ***************/
+
+// Gradients
+@mixin linear-gradient($fromColor, $toColor) {
+	background-color: $toColor; /* Fallback Color */
+	background-image: -webkit-gradient(linear, left top, left bottom, from($fromColor), to($toColor)); /* Saf4+, Chrome */
+	background-image: -webkit-linear-gradient(right, $fromColor, $toColor); /* Chrome 10+, Saf5.1+, iOS 5+ */
+	background-image: -moz-linear-gradient(right, $fromColor, $toColor); /* FF3.6 */
+	background-image: -ms-linear-gradient(right, $fromColor, $toColor); /* IE10 */
+	background-image: -o-linear-gradient(right, $fromColor, $toColor); /* Opera 11.10+ */
+	background-image: linear-gradient(right, $fromColor, $toColor);
+}
+@mixin linear-gradient-tb($top, $bottom) {
+	background: $top; /* Old browsers */
+	background: -moz-linear-gradient(top, $top 0%, $bottom 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, $top 0%,$bottom 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, $top 0%,$bottom 100%); /* IE10+ */
+	background: linear-gradient(to bottom, $top 0%,$bottom 100%); /* W3C */
+}
+@mixin linear-gradient-tmb($startColor: #ffffff, $midColor: #eeeeee, $colorStop: 50%, $endColor: #cccccc) {
+	background-color: mix($midColor, $endColor, 80%);
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, from($startColor), color-stop($colorStop, $midColor), to($endColor));
+	background-image: -webkit-linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-image: -moz-linear-gradient(top, $startColor, $midColor $colorStop, $endColor);
+	background-image: -o-linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-image: linear-gradient($startColor, $midColor $colorStop, $endColor);
+	background-repeat: no-repeat;
+}
+
+// Transition
+@mixin transition($transition-property, $transition-time, $method) {
+	-webkit-transition: $transition-property $transition-time $method;
+	-moz-transition: $transition-property $transition-time $method;
+	-ms-transition: $transition-property $transition-time $method;
+	-o-transition: $transition-property $transition-time $method;
+	transition: $transition-property $transition-time $method;
+}
+
+// Box Sizing
+@mixin box-sizing($string){
+	-webkit-box-sizing: $string;
+	-moz-box-sizing: $string;
+	box-sizing: $string;
+}
+
+// Box Shadow
+@mixin box-shadow($off-y, $off-x, $blur, $color){
+	-moz-box-shadow: $off-y $off-x $blur $color; /* FF3.5+ */
+	-webkit-box-shadow: $off-y $off-x $blur $color; /* Saf3.0+, Chrome */
+	box-shadow: $off-y $off-x $blur $color; /* Opera 10.5, IE9 */
+}
+
+@mixin box-shadow-inset($top, $left, $blur, $color, $inset:"") {
+	-webkit-box-shadow: $top $left $blur $color $inset;
+	-moz-box-shadow: $top $left $blur $color $inset;
+	box-shadow: $top $left $blur $color $inset;
+}
+
+// Border Radius
+@mixin roundedCorners($size) {
+	-webkit-border-radius: $size + px;
+	-moz-border-radius: $size + px;
+	border-radius: $size + px;
+}
+
+@mixin roundedCornersAll($size1, $size2, $size3, $size4) {
+	-webkit-border-radius: $size1 $size2 $size3 $size4;
+	-moz-border-radius: $size1 $size2 $size3 $size4;
+	border-radius: $size1 $size2 $size3 $size4;
+}
+
+@mixin transform($args){
+	-webkit-transform: $args;
+	-moz-transform: $args;
+	-o-transform: $args;
+	-ms-transform: $args;
+	transform: $args;
+}
+
+// Opacity
+@mixin opacity($opacity) {
+	opacity: $opacity / 100;
+	filter: alpha(opacity=$opacity);
+}
+
+
+
+
+
+
+

@@ -1,0 +1,4092 @@
+/************************************************
+	************************************************
+								Table of contents
+	************************************************
+************************************************/
+
+// A1. Importing Sass Variables
+
+// A2. Importing Web Fonts
+
+// A3. Body CSS
+
+// A4. Loading CSS
+
+// A5. Re-usable Classes
+// Anchor Tag
+// Image Radius
+// Unorder List
+// Headings
+// Text Colors
+// Background Colors
+// Image Sizes
+// Rounded Conrners
+
+// A6. Animations CSS
+
+// A7. Header Section CSS
+// Header
+// Header Ations
+// Header Notifications
+// Header Profile Dropdown
+
+// A7. Main Container
+
+// A8. Content Wrapper
+
+// A9. Page Header
+
+// A10. Page Wrapper
+
+// A11. Main Footer
+
+// A12. Components
+// Chart Heights
+// Card Heights
+// Heights
+
+// A13. Login, Signup, Lock and Error Screens
+// Error screen
+// Login Screen
+// Line between two blocks
+
+// A14. Pages
+// Newsletter
+// Icons
+// Search Results
+// User Cards
+// Comments / Media
+// Blog
+// Categories
+// Popular Posts
+// Account Settings
+// Grid Container
+// Avatars
+// Text Avatars
+
+// A15. Widgets CSS
+// Events
+// Overall Events
+// Custom Button Group
+// Custom Dropdown Group
+// Notifications
+
+// A16. Hospital Dashboard
+// Tiles
+// Edit Doctor Profile
+// Training Schedules
+// Hospital Ratings
+// Hospital Location List
+// Doctors List
+// Hospital Ratings
+// Top Doctors
+// Custom Messages
+
+// A17. Vendor CSS
+// BS Select
+// Gallery
+// Jvector Map
+
+// A18. Invoice Page
+// Invoices status
+
+// A19. Custom Tabs Container
+
+// A20. Custom Tables
+
+// A21. Bootstrap Overwrite CSS
+// Accordions
+// Alerts
+// Badges
+// Blockquote
+// Breadcrumbs
+// Buttons
+// Button Primary
+// Button Secondary
+// Button Success
+// Button Info
+// Button Danger
+// Button Warning
+// Button Sizes
+// Button Links
+// Carousel
+// Cards
+// Card Decks
+// Dropdown Menu
+// Dropdowns
+// Forms
+// Custom Checkbox and Radio
+// Jumbotron
+// List Group
+// Modal
+// Navbar
+// Nav
+// Nav Pills
+// Navbar Toggler
+// Custom Navbar
+// Nav Tabs
+// Pagination
+// Popovers
+// Progress Bars
+// Toast
+// Tables
+// Tootltips
+// Row Gutters
+
+// A22. Highlights
+
+/************************************************
+	************************************************
+						A1. Importing Sass Variables
+	************************************************
+************************************************/
+@import "variables.scss";
+
+/************************************************
+	************************************************
+										A3. Body CSS
+	************************************************
+************************************************/
+html {
+	height: 100%;
+	font-size: 100%;
+}
+body {
+	margin: 0;
+	padding: 0;
+	font-size: 0.875rem;
+	font-weight: normal;
+	color: lighten($black, 20%);
+	background: $primary-color;
+	min-height: 100%;
+	position: relative;
+	&.authentication {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		background: url(../img/bg5.jpeg);
+		background-size: cover;
+		background-position: center center;
+	}
+}
+
+/************************************************
+	************************************************
+									A4. Loading CSS
+	************************************************
+************************************************/
+#loading-wrapper {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 5000;
+	background: rgba(0, 102, 255, 0.7);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	.spinner-border {
+		width: 8rem;
+		height: 8rem;
+		color: $white;
+		border: 0.2rem solid $white;
+		border-right-color: transparent;
+	}
+}
+
+/************************************************
+	************************************************
+									A5. Re-usable Classes
+	************************************************
+************************************************/
+
+// Anchor Tag *************************
+a {
+	color: $black;
+	&:hover {
+		text-decoration: none;
+	}
+}
+
+// Image Radius *************************
+img {
+	@include roundedCorners(3);
+}
+
+// Unorder List *************************
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	&.custom {
+		font-size: 0.825rem;
+		margin: 20px 0 0 20px;
+		li {
+			line-height: 180%;
+		}
+	}
+	&.custom-list2 {
+		font-size: 0.825rem;
+		list-style-type: disc;
+		margin: 0 0 0 15px;
+		li {
+			line-height: 100%;
+			a {
+				display: flex;
+				line-height: 200%;
+				&:hover {
+					text-decoration: underline;
+					color: $primary-color;
+				}
+			}
+		}
+	}
+}
+
+// Headings *************************
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-weight: 700;
+}
+h1 {
+	font-size: 2.5rem;
+	margin-bottom: 0.8rem;
+}
+h2 {
+	font-size: 2rem;
+	margin-bottom: 0.5rem;
+}
+h3 {
+	font-size: 1.5rem;
+	margin-bottom: 0.5rem;
+}
+h4 {
+	font-size: 1.25rem;
+	margin-bottom: 0.4rem;
+}
+h5 {
+	font-size: 1rem;
+	margin-bottom: 0.3rem;
+}
+h6 {
+	font-size: 0.85rem;
+	margin-bottom: 0.2rem;
+}
+p {
+	margin-bottom: 0.2rem;
+	line-height: 180%;
+	font-weight: 400;
+}
+h1.styled {
+	text-align: center;
+	position: relative;
+	line-height: 180%;
+	padding-bottom: 0.2rem;
+	margin-bottom: 3rem;
+	font-weight: 400;
+	&:after {
+		@include roundedCorners(50);
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -35px;
+		background: $primary-color;
+		height: 5px;
+		width: 70px;
+	}
+}
+h2.styled {
+	text-align: center;
+	position: relative;
+	line-height: 180%;
+	padding-bottom: 0.2rem;
+	margin-bottom: 3rem;
+	font-weight: 400;
+	&:after {
+		@include roundedCorners(50);
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -25px;
+		background: $primary-color;
+		height: 4px;
+		width: 50px;
+	}
+}
+h3.styled {
+	text-align: center;
+	position: relative;
+	line-height: 180%;
+	padding-bottom: 0.2rem;
+	margin-bottom: 3rem;
+	font-weight: 400;
+	&:after {
+		@include roundedCorners(50);
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		margin-left: -15px;
+		background: $primary-color;
+		height: 3px;
+		width: 30px;
+	}
+}
+
+// Text Colors *************************
+.text-primary {
+	color: $primary-color !important;
+}
+.text-secondary {
+	color: $secondary-color !important;
+}
+.text-success {
+	color: $green !important;
+}
+.text-info {
+	color: $blue !important;
+}
+.text-warning {
+	color: $yellow !important;
+}
+.text-danger {
+	color: $red !important;
+}
+.text-muted {
+	color: darken($white, 30%) !important;
+}
+
+// Background Colors *************************
+.bg-primary,
+a.bg-primary {
+	background-color: $primary-color !important;
+	&:hover,
+	&:focus {
+		background-color: darken($primary-color, 5%) !important;
+	}
+}
+.bg-secondary,
+a.bg-secondary {
+	background-color: $secondary-color !important;
+	&:hover,
+	&:focus {
+		background-color: darken($secondary-color, 5%) !important;
+	}
+}
+.bg-success,
+a.bg-success {
+	background-color: $green !important;
+	&:hover,
+	&:focus {
+		background-color: darken($green, 5%) !important;
+	}
+}
+.bg-info,
+a.bg-info {
+	background-color: $blue !important;
+	&:hover,
+	&:focus {
+		background-color: darken($blue, 5%) !important;
+	}
+}
+.bg-warning,
+a.bg-warning {
+	background-color: $yellow !important;
+	&:hover,
+	&:focus {
+		background-color: darken($yellow, 5%) !important;
+	}
+}
+.bg-danger,
+a.bg-danger {
+	background-color: $red !important;
+	&:hover,
+	&:focus {
+		background-color: darken($red, 5%) !important;
+	}
+}
+
+// Image Sizes *************************
+.img-48 {
+	max-width: 48px;
+	max-height: 48px;
+	@include roundedCorners(2);
+}
+.img-72 {
+	max-width: 72px;
+	max-height: 72px;
+	@include roundedCorners(2);
+}
+.img-90 {
+	max-width: 90px;
+	max-height: 90px;
+	@include roundedCorners(2);
+}
+
+// Rounded Conrners *************************
+.rounded-2 {
+	@include roundedCorners(5);
+}
+.rounded-3 {
+	@include roundedCorners(3);
+}
+.rounded-4 {
+	@include roundedCorners(4);
+}
+
+/************************************************
+	************************************************
+									A6. Animations CSS							
+	************************************************
+************************************************/
+@-webkit-keyframes slideInUp {
+	from {
+		-webkit-transform: translate3d(0, 7%, 0);
+		transform: translate3d(0, 7%, 0);
+		visibility: visible;
+		opacity: 0.2;
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		opacity: 2;
+	}
+}
+@keyframes slideInUp {
+	from {
+		-webkit-transform: translate3d(0, 7%, 0);
+		transform: translate3d(0, 7%, 0);
+		visibility: visible;
+		opacity: 0.2;
+	}
+
+	to {
+		-webkit-transform: translate3d(0, 0, 0);
+		transform: translate3d(0, 0, 0);
+		opacity: 1;
+	}
+}
+
+/************************************************
+	************************************************
+								A7. Header Section CSS
+	************************************************
+************************************************/
+
+// Header *************************
+.header {
+	padding: 0.4rem 0 0.4rem 0;
+	z-index: 100;
+	position: relative;
+	margin: 0 0 2rem 0;
+	box-shadow: 0px 10px 30px -5px rgba(0, 0, 0, 0.2);
+	a.logo {
+		transition: all 0.5s ease;
+		margin: 3px 0;
+		display: inline-block;
+		color: $white;
+		font-size: 1.6rem;
+		font-weight: 700;
+		span {
+			font-size: 0.9rem;
+			font-weight: 600;
+		}
+		&:hover {
+			text-decoration: none;
+			opacity: 0.7;
+		}
+		img {
+			max-width: 150px;
+		}
+	}
+}
+
+// Header Ations *************************
+.header-actions {
+	display: flex;
+	align-items: center;
+	justify-content: flex-end;
+	> li {
+		float: left;
+		> a {
+			padding: 10px 15px 10px 15px;
+			display: block;
+			position: relative;
+			> i {
+				font-size: 1.2rem;
+				vertical-align: middle;
+				color: $white;
+			}
+			> img.list-icon {
+				width: 24px;
+				height: 24px;
+				margin: 0;
+				cursor: pointer;
+			}
+			.count-label {
+				position: absolute;
+				top: 6px;
+				right: 10px;
+				width: 10px;
+				height: 10px;
+				background: $yellow;
+				@include roundedCorners(30);
+			}
+			&.user-settings {
+				padding: 0 0 0 18px;
+				.avatar {
+					position: relative;
+					width: 40px;
+					height: 40px;
+					@include roundedCorners(50);
+					background: $white;
+					line-height: 40px;
+					display: inline-block;
+					text-align: center;
+					color: $primary-color;
+					font-weight: 700;
+					margin: 0;
+					.status {
+						position: absolute;
+						top: 0px;
+						right: 0px;
+						width: 13px;
+						height: 13px;
+						@include roundedCorners(10);
+						border: 2px solid $white;
+						&.busy {
+							background: $red;
+						}
+						&.online {
+							background: $green;
+						}
+						&.away {
+							background: $yellow;
+						}
+					}
+				}
+				span.user-name {
+					color: $white;
+					margin-right: 5px;
+					vertical-align: middle;
+					font-size: 0.875rem;
+					display: inline-block;
+					max-width: 90px;
+					overflow: hidden;
+					white-space: nowrap;
+					text-overflow: ellipsis;
+					font-weight: 300;
+				}
+			}
+			&.contact {
+				padding: 0.3rem 1.2rem;
+				border: 1px solid rgba(255, 255, 255, 0.3);
+				background: rgba(255, 255, 255, 0.1);
+				@include roundedCorners(50);
+				line-height: 100%;
+				display: flex;
+				align-items: center;
+				color: $white;
+				font-weight: 600;
+				margin: 0 0.5rem 0 0;
+				> i {
+					margin: 0 0.7rem 0 0;
+				}
+			}
+		}
+		&:hover {
+			.dropdown-menu {
+				margin-top: 0;
+				display: block;
+			}
+		}
+	}
+}
+@media (max-width: 576px) {
+	.header-actions {
+		> li {
+			border-left: 0;
+			> a {
+				&.user-settings {
+					span.user-name {
+						display: none;
+					}
+				}
+			}
+		}
+	}
+}
+
+// Header Notifications *************************
+ul.header-notifications {
+	li {
+		a {
+			padding: 0.7rem 1rem;
+			display: block;
+			transition: all 0.5s ease;
+			.avatar {
+				float: left;
+				position: relative;
+				margin: 0;
+				img {
+					width: 48px;
+					height: 48px;
+					line-height: 48px;
+					@include roundedCorners(50);
+				}
+				.notify-iocn {
+					position: absolute;
+					right: -5px;
+					bottom: 0px;
+					background: $white;
+					padding: 4px;
+					@include roundedCorners(50);
+					box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+					font-size: 0.75rem;
+				}
+			}
+			.details {
+				display: block;
+				margin-left: 65px;
+				h6 {
+					color: $black;
+				}
+				p {
+					color: lighten($black, 60%);
+					font-size: 0.825rem;
+					line-height: 140%;
+				}
+			}
+			&:hover {
+				box-shadow: 0 10px 10px -10px rgba(0, 0, 0, 0.2);
+			}
+		}
+		&:first-child {
+			a {
+				padding-top: 0;
+			}
+		}
+	}
+}
+
+// Header Profile Dropdown *************************
+.header-profile-actions {
+	margin: 0;
+	padding: 0.8rem 0;
+	.header-user-profile {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-bottom: 0.5rem;
+		.header-user {
+			margin-bottom: 0.5rem;
+			img {
+				width: 4rem;
+				height: 4rem;
+				@include roundedCorners(100);
+			}
+		}
+		p {
+			color: darken($white, 30%);
+			font-size: 0.825rem;
+		}
+	}
+	a {
+		border-bottom: 1px dotted rgba(1, 118, 192, 0.1);
+		padding: 0.5rem 1rem;
+		transition: all 0.5s ease;
+		display: block;
+		color: lighten($black, 40%);
+		font-size: 0.8rem;
+		font-weight: 400;
+		&:hover {
+			background: $light-bg;
+			color: $black;
+		}
+		i {
+			font-weight: 700;
+			margin-right: 0.5rem;
+			font-size: 1rem;
+			vertical-align: text-top;
+		}
+		&:last-child {
+			border-bottom: 0;
+		}
+	}
+}
+
+/************************************************
+	************************************************
+									A7. Main Container
+	************************************************
+************************************************/
+.main-container {
+	margin: 0 auto 0 auto;
+	padding: 0;
+}
+
+/************************************************
+	************************************************
+									A8. Content Wrapper
+	************************************************
+************************************************/
+.content-wrapper {
+	padding: 1.5rem 1.5rem 1.5rem 1.5rem;
+	background: $light-bg;
+	min-height: calc(100vh - 260px);
+}
+
+/************************************************
+	************************************************
+									A9. Page Header
+	************************************************
+************************************************/
+.page-header {
+	padding: 0.5rem 1rem;
+	background: darken($primary-color, 5%);
+	margin: 0;
+	min-height: 50px;
+	max-height: 50px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	h5.title {
+		margin: 0;
+		font-weight: 600;
+		font-size: 1rem;
+		color: $white;
+	}
+	.breadcrumb {
+		padding: 0;
+	}
+	.site-award {
+		background: $secondary-color;
+		color: $white;
+		font-size: 0.8rem;
+		@include roundedCorners(10);
+		padding: 1rem 1.5rem;
+		font-weight: 700;
+		min-width: 120px;
+		margin-top: -85px;
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-direction: column;
+		text-transform: uppercase;
+		img {
+			width: 60px;
+			height: 60px;
+			margin: 0 0 0.5rem 0;
+		}
+	}
+}
+@media (max-width: 992px) {
+	.page-header {
+		@include roundedCornersAll(4px, 4px, 0, 0);
+	}
+}
+
+/************************************************
+	************************************************
+									A10. Page Wrapper
+	************************************************
+************************************************/
+.page-wrapper {
+	padding: 0;
+}
+
+/************************************************
+	************************************************
+									A11. Main Footer
+	************************************************
+************************************************/
+.main-footer {
+	background: darken($primary-color, 5%);
+	padding: 0.9rem 1.3rem;
+	font-size: 0.65rem;
+	margin: 0 0 1rem 0;
+	@include roundedCornersAll(0, 0, 5px, 5px);
+	color: $white;
+}
+
+/************************************************
+	************************************************
+									A12. Components
+	************************************************
+************************************************/
+
+// Chart Heights *************************
+.chart-height {
+	position: relative;
+	height: 250px;
+}
+.chart-height-md {
+	position: relative;
+	height: 190px;
+}
+.chart-height-sm {
+	position: relative;
+	height: 150px;
+}
+.chart-height-xs {
+	position: relative;
+	height: 120px;
+}
+.map-xl {
+	width: 100%;
+	height: 350px;
+	background: $light-bg;
+}
+
+// Card Heights *************************
+.card-body-275 {
+	position: relative;
+	min-height: 275px;
+}
+.card-body-320 {
+	position: relative;
+	min-height: 320px;
+}
+
+// Heights *************************
+.h-150 {
+	min-height: 150px;
+}
+.h-180 {
+	min-height: 180px;
+}
+.h-250 {
+	min-height: 250px;
+}
+
+/************************************************
+	************************************************
+			A13. Login, Signup, Lock and Error Screens
+	************************************************
+************************************************/
+
+// Error screen *************************
+.error-screen {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	text-align: center;
+	color: $white;
+	height: 100vh;
+	h1 {
+		margin-bottom: 2rem;
+		font-size: 5rem;
+	}
+	p {
+		margin-bottom: 2rem;
+		font-size: 1.2rem;
+		line-height: 150%;
+	}
+	.btn {
+		font-size: 1.2rem;
+		padding: 0.5rem 2rem;
+		font-weight: 600;
+		@include roundedCorners(50);
+	}
+}
+
+// Login Screen *************************
+.login-screen {
+	position: relative;
+	background: $white;
+	margin: 60px auto;
+	@include roundedCorners(18);
+	box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
+	.login-logo {
+		margin: 1rem 0 2rem 0;
+		display: inline-block;
+		font-size: 2.5rem;
+		font-weight: 700;
+	}
+	.login-box {
+		padding: 1.5rem;
+		h5 {
+			margin: 0 0 1rem 0;
+			font-weight: 400;
+			font-size: 0.925rem;
+			line-height: 150%;
+		}
+	}
+	// Actions
+	.actions {
+		display: flex;
+		margin-bottom: 0.5rem;
+		-webkit-box-pack: justify;
+		justify-content: flex-end;
+		-webkit-box-align: end;
+		align-items: center;
+		a {
+			color: lighten($black, 60%);
+			padding-right: 10px;
+			&:hover {
+				color: lighten($black, 40%);
+			}
+		}
+	}
+	.additional-link {
+		text-decoration: none;
+		margin: 0.5rem auto 0 auto;
+		display: inline-block;
+		color: lighten($black, 60%);
+		a {
+			margin-left: 5px;
+			display: inline-block;
+		}
+	}
+	p.info {
+		padding: 0;
+		margin: 0 0 20px 0;
+		line-height: 150%;
+		color: lighten($black, 60%);
+		text-align: center;
+	}
+}
+
+// Line between two blocks *************************
+.or {
+	position: relative;
+	text-align: center;
+	margin-bottom: 20px;
+	&::before {
+		content: "";
+		position: absolute;
+		top: 50%;
+		left: 15%;
+		width: 70%;
+		height: 1px;
+		background-color: $light-bg;
+	}
+	span {
+		position: relative;
+		background-color: $white;
+		padding: 0 10px;
+		z-index: 10;
+	}
+}
+
+/************************************************
+	************************************************
+										A14. Pages
+	************************************************
+************************************************/
+
+// Newsletter *************************
+.newsletter {
+	background-color: $white;
+	border: 1px solid $border-bg;
+	padding: 2rem;
+	@include roundedCorners(3);
+	overflow: hidden;
+	position: relative;
+	img.mail-icon {
+		position: absolute;
+		right: 30px;
+		top: 30px;
+		max-width: 80px;
+		max-height: 80px;
+	}
+	.title {
+		margin-bottom: 1.5rem;
+		h3 {
+			padding-top: 0.8rem;
+			position: relative;
+			&:before {
+				background: $primary-color;
+				content: "";
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 18px;
+				height: 3px;
+				display: block;
+			}
+		}
+	}
+	h6 {
+		margin: 0.7rem 0;
+	}
+	.styled-input-wrapper {
+		margin: 1.5rem 0 0 0;
+	}
+}
+
+// Icons *************************
+.icons {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: center;
+	align-items: center;
+	align-content: center;
+	span {
+		font-size: 1rem;
+		text-align: center;
+		cursor: pointer;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+		color: $primary-color;
+		-webkit-transition: all 0.5s ease-in-out;
+		-moz-transition: all 0.5s ease-in-out;
+		-ms-transition: all 0.5s ease-in-out;
+		-o-transition: all 0.5s ease-in-out;
+		transition: all 0.5s ease-in-out;
+		background: lighten($primary-color, 47%);
+		@include roundedCorners(4);
+		margin: 2px;
+		&:hover {
+			background-color: $primary-color;
+			color: $white;
+		}
+	}
+}
+
+// Search Results *************************
+.search-result {
+	margin-bottom: 3rem;
+	max-width: 80%;
+	a {
+		color: $primary-color;
+		font-size: 1rem;
+		margin: 0 0 10px 0;
+		font-weight: 700;
+		display: inline-block;
+	}
+	p.title {
+		font-size: 0.9rem;
+		color: lighten($black, 60%);
+		margin: 0;
+	}
+	p.desc {
+		font-size: 0.9rem;
+		margin: 0;
+		line-height: 150%;
+	}
+}
+@media (max-width: 767px) {
+	.search-result {
+		max-width: 100%;
+	}
+}
+
+// User Cards *************************
+figure.user-card {
+	background: $white;
+	border: 0;
+	margin-bottom: 1rem;
+	box-shadow: 0 0 25px rgba(26, 107, 225, 0.1);
+	border-top: 2px solid $primary-color;
+	text-align: center;
+	padding: 1.25rem 1.25rem;
+	.profile {
+		@include roundedCorners(50);
+		max-width: 72px;
+		margin-bottom: 20px;
+	}
+	h5 {
+		margin: 0 0 5px 0;
+	}
+	h6.designation {
+		margin: 0 0 15px 0;
+		color: lighten($black, 60%);
+		font-weight: 400;
+	}
+	p {
+		margin: 0;
+		padding: 0 0 15px 0;
+		line-height: 150%;
+		font-size: 0.85rem;
+	}
+	p.timing {
+		margin: 0;
+		padding: 0 0 15px 0;
+		font-size: 0.75rem;
+		color: $green;
+	}
+	a {
+		i {
+			font-size: 0.825rem;
+			vertical-align: middle;
+		}
+	}
+}
+
+// Comments / Media *************************
+.media.comments {
+	margin-top: 0;
+	.media-left a {
+		display: block;
+	}
+	a .empty-avatar {
+		height: 64px;
+		width: 64px;
+		@include roundedCorners(50);
+		color: $white;
+		text-align: center;
+		display: block;
+		line-height: 60px;
+		&.sm {
+			width: 48px;
+			height: 48px;
+			line-height: 48px;
+		}
+	}
+	.media-body {
+		h5.media-heading {
+			font-size: 1rem;
+			span.date {
+				font-size: 0.75rem;
+				padding-left: 5px;
+			}
+		}
+		p {
+			padding: 0 0 0 15px;
+			margin: 15px 0;
+			border-left: 3px solid $border-bg;
+		}
+	}
+	.comments-footer {
+		margin: 25px 0 50px 20px;
+		ul li {
+			float: left;
+			margin-right: 10px;
+		}
+	}
+	.comments-form .form-group {
+		margin-bottom: 10px;
+	}
+}
+.media {
+	&.disabled {
+		opacity: 0.3;
+		cursor: no-drop;
+	}
+}
+@media (max-width: 767px) {
+	.media.comments {
+		overflow: auto;
+	}
+}
+.media {
+	.thumb {
+		width: 60px;
+		height: 60px;
+		&.mr {
+			margin-right: 15px;
+		}
+		&.ml {
+			margin-left: 15px;
+		}
+		&.mb {
+			margin-bottom: 15px;
+		}
+	}
+	&.center {
+		text-align: center;
+	}
+}
+
+// Blog *************************
+.blog {
+	background: $white;
+	margin-bottom: 1.25rem;
+	.blog-body {
+		background: $white;
+		border: 0;
+		@include roundedCorners(0);
+		margin-bottom: 1rem;
+		box-shadow: 0 0 25px rgba(26, 107, 225, 0.1);
+		padding: 1.25rem;
+		position: relative;
+		h1.blog-title {
+			margin: 0 0 1rem 0;
+			font-weight: 700;
+		}
+		h2.blog-title {
+			margin: 0 0 1rem 0;
+			font-weight: 700;
+		}
+		h3.blog-title {
+			margin: 0 0 1rem 0;
+			font-weight: 700;
+		}
+		h6.blog-date {
+			font-size: 0.7rem;
+			font-weight: 400;
+			margin: 0 0 1rem 0;
+			.category {
+				font-style: italic;
+				color: $primary-color;
+				margin-right: 0.7rem;
+			}
+			.divider {
+				color: lighten($black, 60%);
+				margin-right: 0.5rem;
+			}
+			.date {
+				color: lighten($black, 60%);
+			}
+		}
+		.blog-description {
+			margin: 0 0 1rem 0;
+			p {
+				margin: 0 0 1.5rem 0;
+			}
+		}
+		ul.blog-list {
+			margin: 2rem 0 2rem 4rem;
+			li {
+				padding: 0.5rem 0;
+				&:before {
+					content: "";
+					display: block;
+					float: left;
+					margin-top: 0.6em;
+					margin-left: -20px;
+					width: 5px;
+					height: 5px;
+					vertical-align: middle;
+					background: $secondary-color;
+				}
+			}
+		}
+		.img-fluid {
+			margin: 0 0 1rem 0;
+		}
+		.blog-actions {
+			margin: 2rem 0 0 0;
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			.actions {
+				display: flex;
+				justify-content: center;
+				a {
+					margin-left: 1rem;
+					color: $black;
+					font-weight: 700;
+					font-size: 0.725rem;
+					display: flex;
+					align-items: center;
+					i {
+						@include roundedCorners(100);
+						width: 20px;
+						height: 20px;
+						line-height: 20px;
+						text-align: center;
+						margin-right: 0.7rem;
+						vertical-align: middle;
+						color: $white;
+						&.red {
+							background: $red;
+							box-shadow: 0px 0px 0px 5px lighten($red, 30%);
+						}
+						&.green {
+							background: $green;
+							box-shadow: 0px 0px 0px 5px lighten($green, 45%);
+						}
+						&.blue {
+							background: $blue;
+							box-shadow: 0px 0px 0px 5px lighten($blue, 40%);
+						}
+						&.grey {
+							background: lighten($black, 60%);
+							box-shadow: 0px 0px 0px 5px lighten($black, 85%);
+						}
+					}
+				}
+			}
+		}
+	}
+	img.blog-img {
+		width: 100%;
+		@include roundedCornersAll(3px, 3px, 0, 0);
+	}
+}
+
+// Categories *************************
+.categories {
+	display: flex;
+	flex-wrap: wrap;
+	.badge {
+		margin: 0 0.3rem 0.3rem 0;
+		background: transparent;
+		border: 1px solid $border-bg;
+		@include roundedCorners(2);
+	}
+}
+
+// Popular Posts *************************
+.popular-posts {
+	a {
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		padding: 0 0 0.7rem 0;
+		margin: 0 0 0.7rem 0;
+		display: flex;
+		align-items: center;
+		img.post-img {
+			max-width: 60px;
+			margin-right: 0.8rem;
+		}
+		.post-content {
+			h6.post-title {
+				margin: 0 0 0.4rem 0;
+				font-weight: 600;
+				font-size: 0.7rem;
+			}
+			h6.post-date {
+				font-size: 0.7rem;
+				font-weight: 400;
+				margin: 0;
+				.category {
+					text-transform: uppercase;
+					color: $primary-color;
+					margin-right: 0.2rem;
+					font-weight: 600;
+				}
+				.divider {
+					color: lighten($black, 60%);
+					margin-right: 0.2rem;
+				}
+				.date {
+					color: lighten($black, 60%);
+				}
+			}
+		}
+		&:last-child {
+			border-bottom: 0;
+			padding-bottom: 0;
+			margin-bottom: 0;
+		}
+	}
+}
+
+// Account Settings *************************
+.account-settings {
+	.user-profile {
+		margin: 0 0 1rem 0;
+		border-bottom: 1px solid darken($white, 5%);
+		padding-bottom: 1rem;
+		text-align: center;
+		.user-avatar {
+			img {
+				width: 90px;
+				height: 90px;
+				@include roundedCorners(100);
+			}
+			margin: 0 0 1rem 0;
+		}
+		h5.user-name {
+			margin: 0 0 0.5rem 0;
+		}
+		h6.user-email {
+			margin: 0;
+			font-weight: 400;
+			color: lighten($black, 60%);
+		}
+	}
+	.setting-links {
+		a {
+			display: flex;
+			flex-direction: row;
+			padding: 0.8rem 0;
+			font-size: 0.8rem;
+			margin: 0;
+			i {
+				font-size: 1.1rem;
+				color: $primary-color;
+				margin: 0 0.8rem 0 0;
+				vertical-align: middle;
+				position: relative;
+				&:after {
+					content: "";
+					width: 30px;
+					height: 30px;
+					opacity: 0.1;
+					background: lighten($black, 60%);
+					position: absolute;
+					@include roundedCornersAll(30px, 10px, 30px, 10px);
+					top: -7px;
+					left: -7px;
+					z-index: 2;
+				}
+			}
+		}
+	}
+}
+
+// Grid Container *************************
+.grid-container {
+	.column {
+		border: 1px solid $primary-color;
+		background: $primary-color;
+		color: $white;
+		padding: 0.5rem 0.8rem;
+		font-size: 0.725rem;
+		margin: 0.2rem 0;
+		@include roundedCorners(2);
+	}
+}
+
+// Avatars *************************
+.avatar-group {
+	display: flex;
+	align-items: center;
+	.avatar {
+		display: inline-block;
+	}
+}
+.avatar {
+	width: 48px;
+	height: 48px;
+	position: relative;
+	margin: 0.5rem;
+	img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		&.circle {
+			border-radius: 100% !important;
+		}
+		&.half-circle {
+			border-radius: 30% !important;
+		}
+		&.rounded {
+			border-radius: 10% !important;
+		}
+	}
+	&.xs {
+		width: 24px;
+		height: 24px;
+	}
+	&.sm {
+		width: 36px;
+		height: 36px;
+	}
+	&.md {
+		width: 48px;
+		height: 48px;
+	}
+	&.lg {
+		width: 64px;
+		height: 64px;
+	}
+	&.xl {
+		width: 72px;
+		height: 72px;
+	}
+	&.xxl {
+		width: 90px;
+		height: 90px;
+	}
+	&.xxxl {
+		width: 120px;
+		height: 120px;
+	}
+}
+
+// Text Avatars *************************
+.text-avatar-group {
+	display: flex;
+	align-items: center;
+}
+.text-avatar {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin: 0.5rem;
+	background: $primary-color;
+	color: $white;
+	font-weight: 700;
+	@include roundedCorners(4);
+	position: relative;
+	&.xs {
+		width: 24px;
+		height: 24px;
+		font-size: 11px;
+	}
+	&.sm {
+		width: 36px;
+		height: 36px;
+		font-size: 14px;
+	}
+	&.md {
+		width: 48px;
+		height: 48px;
+		font-size: 18px;
+	}
+	&.lg {
+		width: 64px;
+		height: 64px;
+		font-size: 21px;
+	}
+	&.xl {
+		width: 72px;
+		height: 72px;
+		font-size: 30px;
+	}
+	&.xxl {
+		width: 90px;
+		height: 90px;
+		font-size: 36px;
+	}
+	&.xxxl {
+		width: 120px;
+		height: 120px;
+		font-size: 48px;
+	}
+	&.circle {
+		border-radius: 100% !important;
+	}
+	&.rounded {
+		border-radius: 10% !important;
+	}
+	&.green {
+		background: $green;
+	}
+	&.yellow {
+		background: $yellow;
+	}
+	&.red {
+		background: $red;
+	}
+	&.blue {
+		background: $blue;
+	}
+}
+
+/************************************************
+	************************************************
+									A15. Widgets CSS
+	************************************************
+************************************************/
+
+// Events *************************
+.events-container {
+	.event-list {
+		display: flex;
+		align-items: center;
+		flex-direction: row;
+		margin: 0 0 1rem 0;
+		.event-icon {
+			width: 40px;
+			height: 40px;
+			@include roundedCorners(4);
+			color: $white;
+			font-size: 1.3rem;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+		}
+		.event-info {
+			margin-left: 1rem;
+			.event-title {
+				font-size: 0.875rem;
+				margin: 0 0 2px 0;
+				font-weight: 600;
+			}
+			.event-date {
+				color: lighten($black, 60%);
+				font-size: 0.8rem;
+			}
+		}
+		&:last-child {
+			margin: 0;
+		}
+	}
+}
+
+// Overall Events *************************
+.overall-events {
+	display: flex;
+	align-items: center;
+	flex-direction: row;
+	a.event-block {
+		padding: 1rem;
+		margin: 1px;
+		flex-basis: 100%;
+		flex: 1;
+		text-align: center;
+		@include roundedCorners(4);
+		font-size: 0.875rem;
+		font-weight: 600;
+		color: $white;
+		i {
+			font-size: 2rem;
+			margin: 0;
+			background: rgba(0, 0, 0, 0.1);
+			padding: 10px;
+			@include roundedCorners(50);
+			display: inline-block;
+		}
+		.total-events {
+			font-size: 2rem;
+			margin: 0;
+		}
+	}
+}
+
+// Custom Button Group *************************
+.custom-btn-group {
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	.btn {
+		margin: 0.3rem;
+		min-width: 90px;
+	}
+}
+
+// Custom Dropdown Group *************************
+.custom-dropdown-group {
+	.dropdown {
+		margin: 0 0.3rem 0.3rem 0;
+		display: inline-block;
+	}
+	.btn-toolbar {
+		margin: 0 0.3rem 0.3rem 0;
+		display: inline-block;
+	}
+}
+
+// Notifications *************************
+.alert-notify {
+	border: 1px solid $border-bg;
+	@include roundedCorners(2);
+	background: $white;
+	margin: 1rem 0 2rem 0;
+	&.info {
+		.type {
+			background: $blue;
+		}
+	}
+	&.danger {
+		.type {
+			background: $red;
+		}
+	}
+	&.success {
+		.type {
+			background: $green;
+		}
+	}
+	.alert-notify-body {
+		padding: 1.5rem 1.25rem 0.75rem 1.25rem;
+		position: relative;
+		.type {
+			position: absolute;
+			left: 1.25rem;
+			top: -0.5rem;
+			padding: 0.3rem 0.7rem;
+			color: $white;
+			font-size: 0.75rem;
+			display: inline-block;
+			line-height: 100%;
+			@include roundedCorners(2);
+		}
+		.alert-notify-title {
+			margin-bottom: 0.5rem;
+			font-size: 0.9rem;
+			font-weight: 700;
+			line-height: 150%;
+			img {
+				float: right;
+				margin-left: 1rem;
+				max-width: 48px;
+				max-height: 48px;
+				vertical-align: top;
+			}
+			i {
+				float: right;
+				margin-left: 1rem;
+				font-size: 2.5rem;
+				vertical-align: top;
+			}
+		}
+		.alert-notify-text {
+			margin-bottom: 0.25rem;
+			font-size: 0.75rem;
+			line-height: 140%;
+		}
+	}
+}
+
+/************************************************
+	************************************************
+							A16. Hospital Dashboard
+	************************************************
+************************************************/
+
+// Tiles *************************
+.hospital-tiles {
+	position: relative;
+	padding: 25px 15px 25px 15px;
+	margin-bottom: 0.9rem;
+	background: $white;
+	border-top: 2px solid $primary-color;
+	text-align: center;
+	box-shadow: 0 0 25px rgba(26, 107, 225, 0.1);
+	img {
+		max-width: 40px;
+		max-height: 40px;
+		opacity: 0.7;
+		margin: 1rem 0;
+	}
+	p {
+		line-height: 100%;
+		color: lighten($black, 60%);
+		margin: 0 0 1rem 0;
+	}
+	h2 {
+		margin: 0;
+		line-height: 100%;
+		color: $primary-color;
+	}
+}
+
+// Edit Doctor Profile *************************
+.doctor-profile {
+	.doctor-thumb {
+		margin-bottom: 1.5rem;
+		text-align: center;
+		img {
+			max-height: 150px;
+			@include roundedCorners(10);
+		}
+	}
+}
+
+// Training Schedules *************************
+.training-schedule {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	a.schedule-block {
+		@include roundedCorners(2);
+		background: lighten($primary-color, 45%);
+		max-width: 16%;
+		min-width: 16%;
+		padding: 1rem;
+		font-size: 0.725rem;
+		line-height: 170%;
+		margin-bottom: 0.5rem;
+		&:hover {
+			background: $primary-color;
+			color: $white;
+		}
+	}
+}
+
+// Hospital Ratings *************************
+a.hospital-list {
+	background: lighten($primary-color, 47%);
+	@include roundedCorners(3);
+	display: flex;
+	padding: 1rem 1rem;
+	margin: 0 0 1rem 0;
+	img.hospital-thumb {
+		width: 90px;
+		height: 90px;
+		@include roundedCorners(50);
+		margin: 0 1rem 0 0;
+	}
+	.hospital-details {
+		width: 100%;
+		.hospital-location {
+			h5 {
+				margin: 0 0 0.5rem 0;
+				color: $primary-color;
+			}
+			p {
+				color: lighten($black, 60%);
+				font-size: 0.775rem;
+				margin: 0 0 0.7rem 0;
+				line-height: 150%;
+				span {
+					color: $black;
+				}
+			}
+		}
+		.hospital-rating-price {
+			display: flex;
+			.ratings {
+				margin: 0 0 0.5rem 0;
+				img {
+					max-width: 15px;
+					padding: 3px;
+					@include roundedCorners(2);
+					background: $white;
+				}
+			}
+			.hospital-price {
+				margin-left: auto;
+				text-align: right;
+				p.actual-price {
+					color: lighten($black, 60%);
+					font-size: 0.875rem;
+					line-height: 100%;
+					font-weight: 600;
+					margin: 0;
+					text-decoration: line-through;
+				}
+				h5.after-discount {
+					margin: 0;
+					color: $black;
+					font-size: 1.2rem;
+				}
+			}
+		}
+	}
+	&:hover {
+		box-shadow: inset 0 0 0 2px $primary-color;
+	}
+}
+
+// Hospital Location List *************************
+.hospital-maps-container {
+	margin: 0 0 1rem 0;
+	a.hospital-listing {
+		background: lighten($primary-color, 47%);
+		@include roundedCorners(3);
+		display: flex;
+		padding: 1rem 1rem;
+		margin: 0 0 0.4rem 0;
+		img.hospital-image {
+			width: 48px;
+			height: 48px;
+			@include roundedCorners(3);
+			margin: 0 0.7rem 0 0;
+		}
+		.hospital-location {
+			.hospital-title {
+				margin: 0 0 0.3rem 0;
+				color: $primary-color;
+				font-weight: 700;
+			}
+			.hospital-address {
+				font-size: 0.8rem;
+				margin: 0 0 0.3rem 0;
+				color: lighten($black, 60%);
+			}
+			.hospital-opens {
+				font-size: 0.7rem;
+				margin: 0 0 0.3rem 0;
+				color: $secondary-color;
+			}
+			.hospital-rating {
+				margin: 0;
+				img {
+					max-width: 16px;
+					padding: 3px;
+					@include roundedCorners(2);
+					background: $white;
+				}
+			}
+		}
+		&:hover {
+			box-shadow: inset 0 0 0 2px $primary-color;
+		}
+		&:last-child {
+			margin: 0;
+		}
+	}
+}
+
+// Doctors List *************************
+.doctors-list {
+	a {
+		font-size: 0.725rem;
+		display: flex;
+		color: $black;
+		background-color: lighten($primary-color, 47%);
+		margin-bottom: 5px;
+		padding: 5px 10px;
+		@include roundedCorners(2);
+		&:hover {
+			background: $primary-color;
+			color: $white;
+		}
+	}
+}
+
+// Hospital Ratings *************************
+.hospital-ratings {
+	.total-ratings {
+		display: flex;
+		margin: 0 0 1rem 0;
+		h2 {
+			margin: 0;
+			line-height: 100%;
+		}
+		.rating-stars {
+			margin: 0.3rem 0 0 0.7rem;
+			img {
+				max-width: 17px;
+				padding: 3px;
+				@include roundedCorners(3);
+				background: lighten($black, 30%);
+			}
+		}
+	}
+	.ratings-list-container {
+		.ratings-list {
+			font-size: 0.825rem;
+			display: flex;
+			padding: 0 0 0.6rem 0;
+			margin: 0 0 0.6rem 0;
+			border-bottom: 1px solid darken($white, 3%);
+			&:last-child {
+				border-bottom: 0;
+				padding: 0;
+				margin: 0;
+			}
+			.rating-level {
+				margin: 0 0.5rem 0 0;
+			}
+			.rating-stars {
+				line-height: 100%;
+				margin: 0.1rem 0 0 0;
+				img {
+					max-width: 10px;
+				}
+			}
+			.total {
+				margin-left: auto;
+				font-weight: 600;
+				.percentage {
+					margin-left: 10px;
+					font-size: 0.725rem;
+					font-weight: 700;
+					color: lighten($black, 60%);
+				}
+			}
+		}
+	}
+}
+
+// Top Doctors *************************
+.top-doctors-container {
+	margin: 0;
+	.top-doctor {
+		margin: 0 0 1.8rem 0;
+		padding-bottom: 0.5rem;
+		display: flex;
+		align-items: flex-start;
+		img.avatar {
+			@include roundedCorners(30);
+			width: 40px;
+			height: 40px;
+			margin: 0 10px 0 0;
+		}
+		.doctor-details {
+			flex-direction: column;
+			flex: 1;
+			h6 {
+				margin: 0 0 0.5rem 0;
+				font-size: 0.825rem;
+			}
+			.doctor-score {
+				.progress {
+					height: 4px;
+					margin: 0 0 0.4rem 0;
+				}
+				.points {
+					display: flex;
+					justify-content: space-between;
+					font-size: 0.775rem;
+					.left {
+						color: lighten($black, 60%);
+					}
+					.right {
+						color: $black;
+						text-transform: uppercase;
+						font-size: 0.7rem;
+					}
+				}
+			}
+		}
+		&:last-child {
+			margin-bottom: 0;
+			padding-bottom: 0;
+		}
+	}
+}
+
+// Custom Messages *************************
+ul.custom-messages {
+	li {
+		margin-bottom: 1.3rem;
+		&:last-child {
+			margin-bottom: 0;
+			.delivery-details {
+				p {
+					margin-bottom: 0;
+				}
+			}
+		}
+		.customer {
+			float: left;
+			background: $primary-color;
+			width: 48px;
+			height: 48px;
+			line-height: 48px;
+			color: $white;
+			font-size: 1rem;
+			text-align: center;
+			@include roundedCorners(30);
+			&.secondary {
+				background: $secondary-color;
+			}
+		}
+		.delivery-details {
+			margin-left: 65px;
+			.badge {
+				font-size: 0.7rem;
+				padding: 3px 10px 4px 10px;
+				margin: 5px 0 5px 0;
+				background: lighten($primary-color, 45%);
+				color: $black;
+			}
+			h5 {
+				margin: 0;
+				line-height: 180%;
+				font-size: 0.9rem;
+			}
+			p {
+				font-size: 0.8rem;
+			}
+		}
+	}
+}
+
+/************************************************
+	************************************************
+									A17. Vendor CSS
+	************************************************
+************************************************/
+
+// BS Select *************************
+.btn-bs-select {
+	padding: 0.375rem 1rem !important;
+}
+.bs-actionsbox,
+.bs-donebutton,
+.bs-searchbox {
+	padding: 4px 0px;
+}
+.bootstrap-select {
+	.dropdown-menu {
+		box-shadow: none;
+		border: 1px solid $border-bg;
+		@include roundedCorners(0);
+		margin: 0;
+		border-top: 0;
+		width: inherit;
+		padding: 3px;
+		&.inner {
+			li.selected {
+				background: $primary-color;
+				a {
+					color: $white;
+					&:hover {
+						pointer-events: none;
+						background: $primary-color;
+						color: $white;
+					}
+				}
+				&:hover {
+					pointer-events: none;
+				}
+				.text-muted {
+					color: rgba(255, 255, 255, 0.7) !important;
+				}
+			}
+		}
+		.dropdown-header {
+			padding: 0.5rem 0.5rem;
+		}
+	}
+	> .dropdown-toggle {
+		height: 38px;
+		line-height: 24px;
+		font-size: 0.825rem;
+	}
+	.dropdown-item {
+		&.active {
+			background: $primary-color;
+			color: $white;
+		}
+		&:focus {
+			outline: none;
+		}
+		&.bg-success {
+			color: $white;
+			&:hover {
+				background: darken($green, 5%) !important;
+			}
+		}
+		&.bg-danger {
+			color: $white;
+			&:hover {
+				background: darken($red, 5%) !important;
+			}
+		}
+		&.bg-info {
+			color: $white;
+			&:hover {
+				background: darken($blue, 5%) !important;
+			}
+		}
+		&.bg-warning {
+			color: $white;
+			&:hover {
+				background: darken($yellow, 5%) !important;
+			}
+		}
+	}
+}
+
+// Gallery *************************
+.gallery {
+	margin: 0 auto;
+	a {
+		border: 1px solid darken($white, 5%);
+		@include roundedCorners(2);
+		position: relative;
+		overflow: hidden;
+		@include transition(all, 0.3s, ease-out);
+		display: block;
+		margin: 0 0 15px 0;
+		opacity: 1;
+		padding: 3px;
+		img {
+			@include roundedCorners(2);
+		}
+		.overlay {
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			opacity: 0;
+			position: absolute;
+			z-index: 20;
+			background: rgba(0, 0, 0, 0.7);
+			overflow: hidden;
+			@include transition(all, 0.5s, ease-out);
+		}
+		.expand {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			z-index: 100;
+			border: 2px solid $yellow;
+			text-align: center;
+			color: $yellow;
+			line-height: 32px;
+			@include roundedCorners(30);
+			font-size: 20px;
+			margin-left: -18px;
+			margin-top: -18px;
+			width: 36px;
+			height: 36px;
+			-webkit-transition: all 0.5s;
+			-moz-transition: all 0.5s;
+			-o-transition: all 0.5s;
+			transition: all 0.5s;
+		}
+		&:hover {
+			opacity: 1;
+			.overlay {
+				opacity: 1;
+			}
+			span.expand {
+				width: 36px;
+				height: 36px;
+				@include roundedCorners(5);
+			}
+		}
+	}
+}
+
+// Jvector Map *************************
+.jvectormap-container {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	touch-action: none;
+}
+.jvectormap-tip {
+	position: absolute;
+	display: none;
+	@include roundedCorners(0);
+	background: $black;
+	color: $white;
+	font-size: 0.75rem;
+	padding: 6px 12px;
+}
+@keyframes showHideDot {
+	0% {
+		opacity: 0;
+	}
+	50% {
+		opacity: 1;
+	}
+	60% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+.jvectormap-marker {
+	opacity: 0;
+	animation: showHideDot 1.5s ease-in-out infinite;
+}
+
+/************************************************
+	************************************************
+								A18. Invoice Page
+	************************************************
+************************************************/
+.invoice-container {
+	.invoice-header {
+		padding: 0.5rem 1.5rem;
+		.invoice-logo {
+			font-size: 1.2rem;
+			color: $primary-color;
+			font-weight: 700;
+		}
+	}
+	.invoice-address {
+		padding: 1rem 1.5rem;
+		line-height: 130%;
+		font-size: 1rem;
+		border-bottom: 1px solid darken($white, 5%);
+		border-top: 1px solid darken($white, 5%);
+	}
+	address {
+		margin-top: 10px;
+		font-size: 0.8rem;
+	}
+	.invoice-details {
+		margin-top: 2.5rem;
+		text-align: right;
+	}
+	.invoice-body {
+		padding: 3rem 1.5rem 1rem 1.5rem;
+	}
+	.invoice-footer {
+		padding: 1rem 1.5rem;
+		text-align: center;
+		font-size: 0.7rem;
+		border-top: 1px solid darken($white, 5%);
+	}
+	.invoice-payment {
+		text-align: right;
+		font-size: 0.8rem;
+		line-height: 200%;
+	}
+}
+
+// Invoices status ************************
+.invoice-status {
+	text-align: center;
+	padding: 1rem;
+	background: $white;
+	margin-bottom: 1rem;
+	box-shadow: 0 0 25px rgba(26, 107, 225, 0.1);
+	border-top: 2px solid $primary-color;
+	h2.status {
+		margin: 0 0 0.8rem 0;
+	}
+	h5.status-title {
+		margin: 0 0 0.8rem 0;
+	}
+	p.status-type {
+		line-height: 150%;
+	}
+	i {
+		font-size: 2rem;
+		margin: 0 0 0.5rem 0;
+		display: inline-block;
+		padding: 1rem;
+		background: $white;
+		box-shadow: 0 0 25px rgba(26, 107, 225, 0.1);
+		@include roundedCorners(50);
+	}
+}
+
+/************************************************
+	************************************************
+							A19. Custom Tabs Container
+	************************************************
+************************************************/
+.custom-tabs-container {
+	background: $white;
+	padding: 1rem 0 0 0;
+	margin-bottom: 1rem;
+	box-shadow: 0 0 25px rgba(26, 107, 225, 0.1);
+	border-top: 2px solid $primary-color;
+}
+
+/************************************************
+	************************************************
+								A20. Custom Tables
+	************************************************
+************************************************/
+.table-container {
+	background: $white;
+	margin-bottom: 1rem;
+	box-shadow: 0 0 25px rgba(26, 107, 225, 0.1);
+	border-top: 2px solid $primary-color;
+	h5.table-title {
+		font-size: 0.9rem;
+		padding: 10px 15px;
+		margin: 0;
+	}
+}
+
+/************************************************
+	************************************************
+						A21. Bootstrap Overwrite CSS
+	************************************************
+************************************************/
+
+// Accordions *************************
+.accordion {
+	border: 0;
+	@include roundedCorners(2);
+	.accordion-container {
+		background: $light-bg;
+		padding: 0;
+		.accordion-header {
+			background: $primary-color;
+			padding: 0.725rem 1rem;
+			a {
+				color: $white;
+				cursor: pointer;
+				font-weight: 600;
+				i.icon {
+					margin-right: 0.5rem;
+					font-size: 1.3rem;
+					vertical-align: middle;
+				}
+			}
+		}
+		.accordion-body {
+			padding: 1.5rem;
+		}
+		.collapse.show {
+			border-bottom: 1px solid darken($white, 5%);
+		}
+		&:last-child {
+			.accordion-header {
+				@include roundedCornersAll(0, 0, 2px, 2px);
+				border-bottom: 0;
+			}
+		}
+		&:first-child {
+			.accordion-header {
+				@include roundedCornersAll(2px, 2px, 0, 0);
+			}
+		}
+	}
+	&.toggle-icons {
+		a {
+			position: relative;
+			display: block;
+			&[aria-expanded="true"] {
+				&:before {
+					position: absolute;
+					right: 0;
+					top: 0;
+					font-size: 1.3rem;
+					content: "\e916";
+					font-family: "icomoon" !important;
+				}
+			}
+			&[aria-expanded="false"] {
+				&:before {
+					position: absolute;
+					right: 0;
+					top: 0;
+					font-size: 1.3rem;
+					content: "\e90f";
+					font-family: "icomoon" !important;
+				}
+			}
+		}
+	}
+}
+
+// Alerts *************************
+.alert {
+	margin-bottom: 0.5rem;
+	@include roundedCorners(2);
+	border: 0;
+	padding: 0.75rem 1rem;
+	font-size: 0.8rem;
+	color: $white;
+	background: $primary-color;
+	.alert-link {
+		color: $white;
+		font-weight: 600;
+	}
+	&.alert-success {
+		background: $green;
+	}
+	&.alert-danger {
+		background: $red;
+	}
+	&.alert-info {
+		background: $blue;
+	}
+	&.alert-warning {
+		background: $yellow;
+	}
+	i {
+		margin-right: 10px;
+		vertical-align: middle;
+	}
+	.alert-link {
+		text-decoration: underline;
+		font-weight: 400;
+	}
+	.alert-heading {
+		font-weight: 600;
+		margin-bottom: 1rem;
+	}
+	.close {
+		font-size: 1.1rem;
+		font-weight: 600;
+		&:hover {
+			color: $white;
+		}
+	}
+}
+
+// Badges *************************
+.badge {
+	@include roundedCorners(2);
+	font-weight: 600;
+	padding: 0.35rem 0.7rem;
+	line-height: 100%;
+	vertical-align: middle;
+	&.badge-primary {
+		background: $primary-color;
+	}
+	&.badge-secondary {
+		background: $secondary-color;
+	}
+	&.badge-success {
+		background: $green;
+	}
+	&.badge-info {
+		background: $blue;
+	}
+	&.badge-danger {
+		background: $red;
+	}
+	&.badge-warning {
+		background: $yellow;
+		color: $white;
+	}
+	&.badge-white {
+		background: $white;
+		color: $black;
+	}
+	&.badge-pill {
+		@include roundedCorners(50);
+	}
+}
+
+// Blockquote *************************
+.blockquote {
+	font-size: 0.9rem;
+	margin-bottom: 2rem;
+	.blockquote-footer {
+		font-size: 95%;
+	}
+}
+
+// Breadcrumbs *************************
+.breadcrumb {
+	@include roundedCorners(0);
+	background: transparent;
+	margin: 0;
+	font-size: 1rem;
+	align-items: center;
+	.breadcrumb-item {
+		color: $white;
+		font-size: 0.825rem;
+		& + .breadcrumb-item::before {
+			color: rgba(255, 255, 255, 0.3);
+		}
+		a {
+			color: $white;
+		}
+		&.active {
+			color: $white;
+			font-weight: 600;
+			font-size: 1rem;
+		}
+	}
+	&.info {
+		background: $blue;
+	}
+	&.warning {
+		background: $yellow;
+	}
+	&.success {
+		background: $green;
+	}
+	&.danger {
+		background: $red;
+	}
+	&.with-arrows {
+		.breadcrumb-item {
+			i {
+				font-size: 1rem;
+				font-weight: 700;
+				vertical-align: middle;
+			}
+			& + .breadcrumb-item::before {
+				content: none;
+			}
+		}
+	}
+}
+
+// Buttons *************************
+button {
+	&:focus {
+		outline: none;
+	}
+}
+.btn {
+	@include roundedCorners(2);
+	border: 1px solid transparent;
+	font-size: 0.825rem;
+	font-weight: 600;
+	.badge {
+		top: 0;
+	}
+	i {
+		vertical-align: middle;
+	}
+}
+
+// Button Primary *************************
+.btn-primary {
+	color: $white;
+	background-color: $primary-color;
+	border-color: $primary-color;
+	&:hover {
+		color: $white;
+		background-color: darken($primary-color, 5%);
+		border-color: darken($primary-color, 5%);
+	}
+	&:focus,
+	&.focus {
+		box-shadow: 0 0 0 0.2rem rgba(11, 87, 136, 0.2);
+	}
+	&.disabled,
+	&:disabled {
+		color: $white;
+		background-color: $primary-color;
+		border-color: $primary-color;
+	}
+	&:not(:disabled):not(.disabled) {
+		&:active,
+		&.active {
+			color: $white;
+			background-color: darken($primary-color, 5%);
+			border-color: darken($primary-color, 5%);
+		}
+	}
+}
+.show > .btn-primary.dropdown-toggle {
+	color: $white;
+	background-color: darken($primary-color, 5%);
+	border-color: darken($primary-color, 5%);
+}
+.btn-primary:not(:disabled):not(.disabled) {
+	&:active:focus,
+	&.active:focus {
+		box-shadow: 0 0 0 0.2rem rgba(11, 87, 136, 0.2);
+	}
+}
+.show > .btn-primary.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.2rem rgba(11, 87, 136, 0.2);
+}
+
+// Button Secondary *************************
+.btn-secondary {
+	color: $white;
+	background-color: $secondary-color;
+	border-color: $secondary-color;
+	&:hover {
+		color: $white;
+		background-color: darken($secondary-color, 5%);
+		border-color: darken($secondary-color, 5%);
+	}
+	&:focus,
+	&.focus {
+		box-shadow: 0 0 0 0.2rem rgba(135, 122, 216, 0.2);
+	}
+	&.disabled,
+	&:disabled {
+		color: $white;
+		background-color: $secondary-color;
+		border-color: $secondary-color;
+	}
+	&:not(:disabled):not(.disabled) {
+		&:active,
+		&.active {
+			color: $white;
+			background-color: darken($secondary-color, 5%);
+			border-color: darken($secondary-color, 5%);
+		}
+	}
+}
+.show > .btn-secondary.dropdown-toggle {
+	color: $white;
+	background-color: darken($secondary-color, 5%);
+	border-color: darken($secondary-color, 5%);
+}
+.btn-secondary:not(:disabled):not(.disabled) {
+	&:active:focus,
+	&.active:focus {
+		box-shadow: 0 0 0 0.2rem rgba(135, 122, 216, 0.2);
+	}
+}
+.show > .btn-secondary.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.2rem rgba(135, 122, 216, 0.2);
+}
+
+// Button Success *************************
+.btn-success {
+	color: $white;
+	background-color: $green;
+	border-color: $green;
+	&:hover {
+		color: $white;
+		background-color: darken($green, 5%);
+		border-color: darken($green, 5%);
+	}
+	&:focus,
+	&.focus {
+		box-shadow: 0 0 0 0.2rem rgba(0, 184, 148, 0.2);
+	}
+	&.disabled,
+	&:disabled {
+		color: $white;
+		background-color: $green;
+		border-color: $green;
+	}
+	&:not(:disabled):not(.disabled) {
+		&:active,
+		&.active {
+			color: $white;
+			background-color: darken($green, 5%);
+			border-color: darken($green, 5%);
+		}
+	}
+}
+.show > .btn-success.dropdown-toggle {
+	color: $white;
+	background-color: darken($green, 5%);
+	border-color: darken($green, 5%);
+}
+.btn-success:not(:disabled):not(.disabled) {
+	&:active:focus,
+	&.active:focus {
+		box-shadow: 0 0 0 0.2rem rgba(164, 203, 119, 0.25);
+	}
+}
+.show > .btn-success.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.2rem rgba(164, 203, 119, 0.25);
+}
+
+// Button Info *************************
+.btn-info {
+	color: $white;
+	background-color: $blue;
+	border-color: $blue;
+	&:hover {
+		color: $white;
+		background-color: darken($blue, 5%);
+		border-color: darken($blue, 5%);
+	}
+	&:focus,
+	&.focus {
+		box-shadow: 0 0 0 0.2rem rgba(99, 201, 242, 0.2);
+	}
+	&.disabled,
+	&:disabled {
+		color: $white;
+		background-color: $blue;
+		border-color: $blue;
+	}
+	&:not(:disabled):not(.disabled) {
+		&:active,
+		&.active {
+			color: $white;
+			background-color: darken($blue, 5%);
+			border-color: darken($blue, 5%);
+		}
+	}
+}
+.show > .btn-info.dropdown-toggle {
+	color: $white;
+	background-color: darken($blue, 5%);
+	border-color: darken($blue, 5%);
+}
+.btn-info:not(:disabled):not(.disabled) {
+	&:active:focus,
+	&.active:focus {
+		box-shadow: 0 0 0 0.2rem rgba(99, 201, 242, 0.2);
+	}
+}
+.show > .btn-info.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.2rem rgba(99, 201, 242, 0.2);
+}
+
+// Button Danger *************************
+.btn-danger {
+	color: $white;
+	background-color: $red;
+	border-color: $red;
+	&:hover {
+		color: $white;
+		background-color: darken($red, 5%);
+		border-color: darken($red, 5%);
+	}
+	&:focus,
+	&.focus {
+		box-shadow: 0 0 0 0.2rem rgba(255, 113, 113, 0.2);
+	}
+	&.disabled,
+	&:disabled {
+		color: $white;
+		background-color: $red;
+		border-color: $red;
+	}
+	&:not(:disabled):not(.disabled) {
+		&:active,
+		&.active {
+			color: $white;
+			background-color: darken($red, 5%);
+			border-color: darken($red, 5%);
+		}
+	}
+}
+.show > .btn-danger.dropdown-toggle {
+	color: $white;
+	background-color: darken($red, 5%);
+	border-color: darken($red, 5%);
+}
+.btn-danger:not(:disabled):not(.disabled) {
+	&:active:focus,
+	&.active:focus {
+		box-shadow: 0 0 0 0.2rem rgba(255, 113, 113, 0.2);
+	}
+}
+.show > .btn-danger.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.2rem rgba(255, 113, 113, 0.2);
+}
+
+// Button Warning *************************
+.btn-warning {
+	color: $white;
+	background-color: $yellow;
+	border-color: $yellow;
+	&:hover {
+		color: $white;
+		background-color: darken($yellow, 5%);
+		border-color: darken($yellow, 5%);
+	}
+	&:focus,
+	&.focus {
+		box-shadow: 0 0 0 0.2rem rgba(250, 191, 70, 0.2);
+	}
+	&.disabled,
+	&:disabled {
+		color: $white;
+		background-color: $yellow;
+		border-color: $yellow;
+	}
+	&:not(:disabled):not(.disabled) {
+		&:active,
+		&.active {
+			color: $white;
+			background-color: darken($yellow, 5%);
+			border-color: darken($yellow, 5%);
+		}
+	}
+}
+.show > .btn-warning.dropdown-toggle {
+	color: $white;
+	background-color: darken($yellow, 5%);
+	border-color: darken($yellow, 5%);
+}
+.btn-warning:not(:disabled):not(.disabled) {
+	&:active:focus,
+	&.active:focus {
+		box-shadow: 0 0 0 0.2rem rgba(250, 191, 70, 0.2);
+	}
+}
+.show > .btn-warning.dropdown-toggle:focus {
+	box-shadow: 0 0 0 0.2rem rgba(250, 191, 70, 0.2);
+}
+
+// Button Sizes *************************
+.btn-lg,
+.btn-group-lg > .btn {
+	@include roundedCorners(2);
+}
+.btn-sm,
+.btn-group-sm > .btn {
+	@include roundedCorners(2);
+}
+
+// Button Links *************************
+.btn-link {
+	font-weight: 400;
+	color: $primary-color;
+	border: 0;
+	padding: 0.5rem 0.5rem;
+	background: transparent;
+	&:hover {
+		color: lighten($primary-color, 15%);
+		text-decoration: none;
+	}
+	&:focus,
+	&.focus {
+		text-decoration: none;
+		box-shadow: none;
+	}
+	&:disabled,
+	&.disabled {
+		color: darken($primary-color, 5%);
+		opacity: 0.7;
+		pointer-events: none;
+	}
+	&.secondary {
+		color: $secondary-color;
+		&:hover {
+			color: darken($secondary-color, 15%);
+		}
+		&:disabled,
+		&.disabled {
+			color: darken($secondary-color, 15%);
+		}
+	}
+	&.info {
+		color: $blue;
+		&:hover {
+			color: darken($blue, 15%);
+		}
+		&:disabled,
+		&.disabled {
+			color: darken($blue, 15%);
+		}
+	}
+	&.success {
+		color: $green;
+		&:hover {
+			color: darken($green, 15%);
+		}
+		&:disabled,
+		&.disabled {
+			color: darken($green, 15%);
+		}
+	}
+	&.warning {
+		color: $yellow;
+		&:hover {
+			color: darken($yellow, 15%);
+		}
+		&:disabled,
+		&.disabled {
+			color: darken($yellow, 15%);
+		}
+	}
+	&.danger {
+		color: $red;
+		&:hover {
+			color: darken($red, 15%);
+		}
+		&:disabled,
+		&.disabled {
+			color: darken($red, 15%);
+		}
+	}
+}
+
+// Carousel *************************
+.carousel {
+	margin-bottom: 2rem;
+}
+
+// Cards *************************
+.card {
+	background: $white;
+	border: 0;
+	@include roundedCorners(0);
+	margin-bottom: 1rem;
+	box-shadow: 0 0 25px rgba(26, 107, 225, 0.1);
+	border-top: 2px solid $primary-color;
+	.card-header {
+		padding: 1rem 1.25rem 1rem 1.25rem;
+		background: $white;
+		border-bottom: 0;
+		@include roundedCorners(0);
+		.card-title {
+			margin: 0;
+			font-size: 1rem;
+			font-weight: 700;
+			line-height: 100%;
+		}
+		.card-sub-title {
+			margin-top: 1rem;
+			font-size: 0.8rem;
+			color: lighten($black, 60%);
+			line-height: 150%;
+		}
+	}
+	.card-body {
+		padding: 1.25rem 1.25rem;
+		position: relative;
+		.card-title {
+			margin-bottom: 0.7rem;
+			font-size: 1rem;
+			font-weight: 700;
+			line-height: 100%;
+		}
+		.card-sub-title {
+			margin-bottom: 1rem;
+			font-size: 0.8rem;
+			color: lighten($black, 60%);
+			line-height: 140%;
+		}
+		.card-text {
+			margin-bottom: 1rem;
+			line-height: 180%;
+		}
+	}
+	.card-footer {
+		background: transparent;
+		border-top: 1px solid darken($white, 5%);
+		padding: 1rem 1.25rem;
+		.view-all {
+			color: rgba(0, 0, 0, 0.4);
+			font-size: 0.8rem;
+			i {
+				font-size: 1.2rem;
+				vertical-align: middle;
+			}
+			&:hover {
+				color: $primary-color;
+			}
+		}
+		a.view {
+			color: rgba(0, 0, 0, 0.4);
+			font-size: 0.825rem;
+			color: $primary-color;
+			font-weight: 700;
+			i {
+				font-size: 1.5rem;
+				margin: 0 10px;
+				vertical-align: middle;
+			}
+		}
+	}
+	&.red {
+		border-top: 2px solid $red;
+	}
+	&.green {
+		border-top: 2px solid $green;
+	}
+	&.blue {
+		border-top: 2px solid $blue;
+	}
+	&.yellow {
+		border-top: 2px solid $yellow;
+	}
+	.card-img-bottom {
+		@include roundedCorners(0);
+	}
+	.card-img-top {
+		@include roundedCorners(0);
+	}
+	&.highlight {
+		border: 1px solid $primary-color;
+		background: $primary-color;
+	}
+}
+@media (max-width: 767px) {
+	.card {
+		.card-body {
+			padding: 0.75rem;
+		}
+	}
+}
+
+// Card Decks *************************
+.card-deck {
+	margin-right: -10px;
+	margin-left: -10px;
+	.card {
+		margin-right: 10px;
+		margin-left: 10px;
+		margin-bottom: 1.25rem;
+	}
+}
+
+// Dropdown Menu *************************
+.dropdown-menu {
+	border: 0;
+	@include roundedCorners(3);
+	box-shadow: 0px 20px 30px -20px rgba(0, 0, 0, 0.3);
+	width: 11rem;
+	&:before {
+		position: absolute;
+		top: -9px;
+		left: 12px;
+		content: "";
+		border-left: 8px solid transparent;
+		border-right: 8px solid transparent;
+		border-bottom: 9px solid $white;
+	}
+	&.dropdown-menu-right {
+		&:before {
+			right: 12px;
+			left: auto;
+			top: -9px;
+		}
+	}
+	&.sm {
+		width: 10rem;
+		left: 50%;
+		margin-left: -5rem;
+		&:before {
+			left: 50%;
+			margin-left: -4px;
+		}
+	}
+	&.lrg {
+		width: 18rem;
+		left: 50% !important;
+		margin-left: -9rem;
+		&:before {
+			left: 50%;
+			margin-left: -4px;
+		}
+	}
+	.dropdown-item {
+		padding: 0.5rem 1rem 0.5rem 1rem;
+		font-size: 0.85rem;
+		line-height: 100%;
+		position: relative;
+		color: lighten($black, 20%);
+		&:hover {
+			background: $light-bg;
+		}
+		&:first-child {
+			@include roundedCorners(0);
+		}
+		&:last-child {
+			@include roundedCorners(0);
+		}
+		&.active-page {
+			color: $secondary-color;
+			background: lighten($secondary-color, 38%);
+			pointer-events: none;
+			cursor: not-allowed;
+		}
+	}
+	.dropdown-menu-header {
+		padding: 0.5rem 1rem;
+		margin-bottom: 1rem;
+		border-bottom: 1px solid darken($white, 15%);
+		p.sub-title {
+			color: lighten($black, 60%);
+			font-size: 0.8rem;
+			i {
+				vertical-align: middle;
+				margin-right: 5px;
+			}
+		}
+	}
+}
+.dropdown-toggle {
+	&::after {
+		vertical-align: middle;
+	}
+}
+.dropdown-divider {
+	margin: 0.3rem 0;
+}
+
+// Dropdowns *************************
+.dropdown-toggle-split {
+	padding-right: 0.8rem;
+	padding-left: 0.8rem;
+}
+
+// Forms *************************
+.form-control {
+	border: 1px solid $border-bg;
+	@include roundedCorners(2);
+	font-size: 0.825rem;
+	&:focus {
+		border-color: lighten($primary-color, 20%);
+		box-shadow: none;
+	}
+}
+label {
+	margin-bottom: 0.3rem;
+	font-size: 0.825rem;
+}
+.input-group-text {
+	border: 1px solid $border-bg;
+	background: lighten($primary-color, 47%);
+	@include roundedCorners(2);
+	font-size: 0.825rem;
+}
+.input-group-sm > .input-group-prepend > .input-group-text {
+	@include roundedCorners(2);
+}
+.input-group-lg > .input-group-prepend > .input-group-text {
+	@include roundedCorners(2);
+}
+.custom-select {
+	font-size: 0.825rem;
+}
+.custom-file-input {
+	font-size: 0.825rem;
+}
+.custom-file-label {
+	font-size: 0.825rem;
+	@include roundedCorners(2);
+	&::after {
+		background: $border-bg;
+		@include roundedCornersAll(0, 2px, 2px, 0);
+	}
+}
+
+// Custom Checkbox and Radio *************************
+.custom-checkbox .custom-control-label::before {
+	@include roundedCorners(2);
+}
+.custom-control-label::before {
+	top: 0.2rem;
+}
+.custom-control-label::after {
+	top: 0.2rem;
+}
+.custom-control-input:checked ~ .custom-control-label::before {
+	background: $primary-color;
+	border-color: $primary-color;
+}
+.custom-control.custom-switch .custom-control-label::after {
+	top: 5px;
+}
+
+// Jumbotron *************************
+.jumbotron {
+	background: $light-bg;
+}
+
+// List Group *************************
+.list-group {
+	margin-bottom: 2rem;
+	.list-group-item {
+		font-size: 0.825rem;
+		padding: 0.5rem 1.25rem;
+		border: 1px solid $border-bg;
+		&:first-child {
+			@include roundedCornersAll(2px, 2px, 0, 0);
+		}
+		&:last-child {
+			@include roundedCornersAll(0, 0, 2px, 2px);
+		}
+		&.active {
+			background-color: $primary-color;
+			border-color: $primary-color;
+		}
+		&.disabled {
+			color: rgba(0, 0, 0, 0.3);
+		}
+	}
+	.list-group-item-success {
+		background: $green;
+		border: 0;
+		margin: 0;
+		color: rgba(255, 255, 255, 0.8);
+	}
+	.list-group-item-danger {
+		background: $red;
+		border: 0;
+		margin: 0;
+		color: rgba(255, 255, 255, 0.8);
+	}
+	.list-group-item-warning {
+		background: $yellow;
+		border: 0;
+		margin: 0;
+		color: $white;
+	}
+	.list-group-item-info {
+		background: $blue;
+		border: 0;
+		margin: 0;
+		color: $white;
+	}
+}
+
+// Modal *************************
+.modal {
+	text-align: left;
+	.modal-dialog {
+		margin-top: 5rem;
+	}
+	.modal-header {
+		background: $primary-color;
+		color: $white;
+		border: 0;
+	}
+	.modal-footer {
+		&.custom {
+			padding: 0;
+			.left-side,
+			.right-side {
+				display: inline-block;
+				text-align: center;
+				width: 49%;
+			}
+			.divider {
+				background-color: $border-bg;
+				display: inline-block;
+				float: inherit;
+				width: 1px;
+				height: 60px;
+				margin: 0px -3px;
+			}
+			.btn-link {
+				padding: 1rem;
+				font-size: 0.9rem;
+				text-transform: uppercase;
+				font-weight: 700;
+			}
+		}
+	}
+}
+.modal-backdrop {
+	&.show {
+		opacity: 0.8;
+	}
+}
+.close {
+	color: $white;
+	text-shadow: 0 1px 0 $black;
+}
+
+// Navbar *************************
+.navbar {
+	margin-bottom: 0.3rem;
+	@include roundedCorners(2);
+	background: $light-bg;
+	.navbar-brand {
+		padding: 0.3rem 1rem 0.3rem 0;
+		font-size: 1rem;
+		font-weight: 700;
+		text-transform: uppercase;
+		color: rgba(255, 255, 255, 0.8);
+		img {
+			width: 20px;
+			height: 20px;
+		}
+	}
+	.navbar-nav {
+		.nav-item {
+			.nav-link {
+				padding: 0.3rem 0.8rem;
+				color: rgba(255, 255, 255, 0.7);
+				&.disabled {
+					color: rgba(255, 255, 255, 0.5);
+				}
+			}
+			&.active {
+				a {
+					color: $white;
+					font-weight: 700;
+				}
+			}
+		}
+	}
+	&.danger {
+		background: $red;
+	}
+	&.warning {
+		background: $yellow;
+	}
+	&.success {
+		background: $green;
+	}
+	&.info {
+		background: $blue;
+	}
+}
+
+// Nav *************************
+.nav-link {
+	color: lighten($black, 40%);
+	font-weight: 600;
+	&.active {
+		color: $primary-color;
+	}
+	&.disabled {
+		color: lighten($black, 60%);
+	}
+}
+
+// Nav Pills *************************
+.nav-pills {
+	.nav-link {
+		@include roundedCorners(2);
+		&:hover {
+			background: $primary-color;
+			color: $white;
+		}
+		&.active {
+			background-color: $primary-color;
+			pointer-events: none;
+		}
+	}
+	&.danger {
+		.nav-link {
+			&:hover {
+				background: $red;
+				color: $white;
+			}
+			&.active {
+				background-color: $red;
+			}
+		}
+	}
+	&.info {
+		.nav-link {
+			&:hover {
+				background: $blue;
+				color: $white;
+			}
+			&.active {
+				background-color: $blue;
+			}
+		}
+	}
+	&.success {
+		.nav-link {
+			&:hover {
+				background: $green;
+				color: $white;
+			}
+			&.active {
+				background-color: $green;
+			}
+		}
+	}
+	&.warning {
+		.nav-link {
+			&:hover {
+				background: $yellow;
+				color: $white;
+			}
+			&.active {
+				background-color: $yellow;
+			}
+		}
+	}
+}
+
+// Navbar Toggler *************************
+.navbar-toggler {
+	display: none;
+	padding: 0;
+	border: 0;
+	width: 48px;
+	height: 48px;
+	vertical-align: top;
+	-webkit-transition: all 0.3s;
+	background: $black;
+	position: relative;
+	&[aria-expanded="false"] {
+		.navbar-toggler-icon {
+			width: auto;
+			height: auto;
+			i {
+				position: absolute;
+				display: block;
+				height: 2px;
+				background: $white;
+				width: 30px;
+				left: 9px;
+				-webkit-transition: all 0.3s;
+				transition: all 0.3s;
+				&:nth-child(1) {
+					top: 16px;
+				}
+				&:nth-child(2) {
+					top: 23px;
+				}
+				&:nth-child(3) {
+					top: 30px;
+				}
+			}
+		}
+	}
+	&[aria-expanded="true"] {
+		.navbar-toggler-icon {
+			width: auto;
+			height: auto;
+			i {
+				position: absolute;
+				display: block;
+				height: 2px;
+				background: $white;
+				width: 30px;
+				left: 9px;
+				-webkit-transition: all 0.3s;
+				transition: all 0.3s;
+				&:nth-child(1) {
+					top: 24px;
+					-webkit-transform: rotateZ(45deg);
+					transform: rotateZ(45deg);
+				}
+				&:nth-child(2) {
+					background: transparent;
+				}
+				&:nth-child(3) {
+					top: 24px;
+					-webkit-transform: rotateZ(-45deg);
+					transform: rotateZ(-45deg);
+				}
+			}
+		}
+	}
+}
+@media (max-width: 992px) {
+	.navbar-toggler {
+		display: inline-block;
+	}
+}
+
+// Custom Navbar *************************
+.custom-navbar {
+	margin-bottom: 0;
+	background: darken($primary-color, 2%);
+	padding: 0;
+	ul.navbar-nav {
+		li.nav-item {
+			.nav-link {
+				position: relative;
+				padding: 0.6rem 1rem 0.6rem 1rem;
+				color: $white;
+				font-size: 0.875rem;
+				font-weight: 600;
+				background: transparent;
+				min-width: 100px;
+				text-align: center;
+				@include roundedCornersAll(4px, 4px, 0, 0);
+				img.nav-icon {
+					max-width: 30px;
+					max-height: 30px;
+					display: block;
+					margin: 0 auto 10px auto;
+				}
+				i.nav-icon {
+					font-size: 1.3rem;
+					font-weight: 300;
+					display: block;
+					margin: 0 auto 3px auto;
+					text-align: center;
+				}
+				&.active-page {
+					position: relative;
+					color: $white;
+					background: darken($primary-color, 5%);
+				}
+				&:hover {
+					color: $primary-color;
+					background: $white;
+				}
+			}
+			&:first-child {
+				.nav-link {
+					@include roundedCornersAll(4px, 4px, 0, 0);
+				}
+			}
+			&:last-child {
+				.nav-link {
+					@include roundedCornersAll(4px, 4px, 0, 0);
+				}
+			}
+			&:hover {
+				color: $primary-color;
+				background: $white;
+				@include roundedCornersAll(4px, 4px, 0, 0);
+				> a {
+					color: $primary-color;
+				}
+				.nav-link.active-page {
+					color: $primary-color;
+					background: $white !important;
+					@include roundedCornersAll(4px, 4px, 0, 0);
+					> a {
+						color: $primary-color;
+					}
+				}
+			}
+		}
+
+		ul.dropdown-menu {
+			margin-top: 0;
+			-webkit-animation-name: slideInUp;
+			animation-name: slideInUp;
+			-webkit-animation-duration: 0.3s;
+			animation-duration: 0.3s;
+			-webkit-animation-fill-mode: both;
+			animation-fill-mode: both;
+			@include roundedCornersAll(0, 4px, 4px, 4px);
+			a.dropdown-item {
+				padding: 0.7rem 1rem 0.7rem 1rem;
+				&:hover {
+					background: $primary-color;
+					color: $white;
+				}
+			}
+			li {
+				position: relative;
+				border-bottom: 1px solid $light-bg;
+				&:last-child {
+					border-bottom: 0;
+				}
+				a.sub-nav-link {
+					padding: 0.7rem 1rem 0.7rem 1rem;
+					display: block;
+					font-size: 0.85rem;
+					font-weight: 400;
+					color: lighten($black, 20%);
+					&:hover {
+						background: $primary-color;
+						color: $white;
+					}
+				}
+				ul.dropdown-menu {
+					@include roundedCornersAll(4px, 0, 4px, 4px);
+				}
+				ul.dropdown-menu-right {
+					@include roundedCornersAll(0, 4px, 4px, 4px);
+				}
+			}
+		}
+		ul.dropdown-menu-right {
+			@include roundedCornersAll(4px, 0, 4px, 4px);
+		}
+	}
+}
+@media (max-width: 991px) {
+	.custom-navbar {
+		margin-bottom: 0.5rem;
+		background: $primary-color;
+		@include roundedCorners(10);
+		ul.navbar-nav {
+			li.nav-item {
+				@include roundedCorners(4);
+				a.nav-link {
+					padding: 0.8rem 1rem;
+					font-size: 0.9rem;
+					text-align: left;
+					margin: 0;
+					@include roundedCorners(0);
+					img.nav-icon {
+						max-width: 21px;
+						max-height: 21px;
+						display: inline-block;
+						margin: 0 10px 0 0;
+						vertical-align: text-bottom;
+					}
+					i.nav-icon {
+						font-size: 1.2rem;
+						font-weight: 300;
+						display: inline-block;
+						margin: 0 10px 0 0;
+						vertical-align: bottom;
+					}
+					&.dropdown-toggle::after {
+						float: right;
+						margin-top: 8px;
+					}
+					&.active-page {
+						&:before {
+							background: none !important;
+						}
+					}
+					&:hover {
+						@include roundedCorners(4);
+					}
+				}
+				&:hover {
+					@include roundedCorners(4);
+				}
+				&:first-child {
+					.nav-link {
+						@include roundedCorners(4);
+					}
+				}
+				&:last-child {
+					.nav-link {
+						@include roundedCornersAll(0, 0, 10px, 10px);
+					}
+				}
+				&.show {
+					background: $white;
+					@include roundedCorners(4);
+					a.nav-link {
+						color: $primary-color;
+					}
+				}
+			}
+			ul.dropdown-menu {
+				position: relative;
+				width: auto;
+				margin: 0 10px 0 10px;
+				top: 0;
+				li {
+					position: relative;
+					ul.dropdown-menu {
+						left: 0 !important;
+					}
+				}
+			}
+		}
+	}
+}
+@media (min-width: 993px) {
+	.custom-navbar {
+		ul.navbar-nav {
+			li.nav-item {
+				&:hover {
+					> ul.dropdown-menu {
+						display: block;
+					}
+				}
+			}
+			ul.dropdown-menu {
+				li {
+					ul.dropdown-menu {
+						display: none;
+					}
+					&:hover {
+						ul.dropdown-menu {
+							top: 0;
+							left: 11rem;
+							display: block;
+							&:before {
+								position: absolute;
+								top: 10px;
+								left: -17px;
+								right: 100%;
+								content: "";
+								border-top: 8px solid transparent;
+								border-bottom: 8px solid transparent;
+								border-right: 9px solid $white;
+							}
+						}
+					}
+					&.open-left {
+						&:hover {
+							ul.dropdown-menu {
+								top: 0;
+								left: -11rem !important;
+								display: block;
+								&:before {
+									position: absolute;
+									top: 10px;
+									right: -9px;
+									left: 100%;
+									content: "";
+									border-top: 8px solid transparent;
+									border-bottom: 8px solid transparent;
+									border-left: 9px solid $white;
+									border-right: 0;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
+
+// Nav Tabs *************************
+.nav-tabs {
+	padding: 0 1rem;
+	.nav-item {
+		.nav-link {
+			position: relative;
+			border: 0;
+			font-weight: 600;
+			padding: 0.6rem 1.8rem;
+			@include roundedCorners(0);
+			border-top: 1px solid transparent;
+			i {
+				font-size: 1rem;
+				margin: 0 0.3rem 0 0;
+				&.block {
+					display: block;
+					text-align: center;
+					margin: 0 0 0.3rem 0;
+				}
+			}
+			&.active {
+				color: $primary-color;
+				border: 1px solid darken($white, 5%);
+				border-bottom: 0;
+				border-top: 1px solid transparent;
+				box-shadow: 0 -2px 0 0 $primary-color;
+				pointer-events: none;
+			}
+			&:hover {
+				border: 0;
+				border-top: 1px solid transparent;
+			}
+		}
+	}
+}
+.tab-content {
+	padding: 1rem;
+}
+
+// Pagination *************************
+.pagination {
+	.page-item {
+		.page-link {
+			background: transparent;
+			color: $black;
+			margin: 0;
+			border: 0;
+			@include roundedCorners(2);
+			min-width: 28px;
+			text-align: center;
+			&:hover {
+				background: rgba(0, 0, 0, 0.05);
+				color: $black;
+			}
+			i {
+				font-weight: 700;
+				vertical-align: middle;
+				font-size: 0.8rem;
+			}
+		}
+		&.active {
+			.page-link {
+				background: $primary-color;
+				color: $white;
+				pointer-events: none;
+			}
+		}
+		&.disabled {
+			.page-link {
+				background: transparent;
+				color: darken($white, 30%);
+			}
+		}
+	}
+	&.success {
+		.page-item {
+			&.active {
+				.page-link {
+					background: $green;
+				}
+			}
+		}
+	}
+	&.info {
+		.page-item {
+			&.active {
+				.page-link {
+					background: $blue;
+				}
+			}
+		}
+	}
+	&.warning {
+		.page-item {
+			&.active {
+				.page-link {
+					background: $yellow;
+				}
+			}
+		}
+	}
+	&.danger {
+		.page-item {
+			&.active {
+				.page-link {
+					background: $red;
+				}
+			}
+		}
+	}
+	&.rounded {
+		.page-item {
+			.page-link {
+				&:hover {
+					@include roundedCorners(30);
+				}
+			}
+			&.active {
+				.page-link {
+					@include roundedCorners(30);
+				}
+			}
+		}
+	}
+}
+
+// Popovers *************************
+.popover {
+	@include roundedCorners(0);
+}
+
+// Progress Bars *************************
+.progress {
+	margin-bottom: 1rem;
+	border: 0;
+	background: $light-bg;
+	@include roundedCorners(0);
+	.progress-bar {
+		background-color: $primary-color;
+	}
+	&.md {
+		height: 0.9rem;
+	}
+	&.sm {
+		height: 0.6rem;
+	}
+	&.xs {
+		height: 0.3rem;
+	}
+	&.xsl {
+		height: 0.15rem;
+	}
+}
+
+// Toast *************************
+.toast {
+	box-shadow: none;
+	background: lighten($primary-color, 47%);
+	border: 0;
+	margin-bottom: 1rem;
+	@include roundedCorners(2);
+	max-width: 100%;
+	.toast-header {
+		background: lighten($primary-color, 45%);
+		border: 0;
+		color: lighten($black, 40%);
+		i {
+			font-size: 1rem;
+			margin-right: 0.2rem;
+			vertical-align: middle;
+		}
+		span.title {
+			margin-right: auto;
+			font-weight: 600;
+		}
+		small {
+			font-weight: 400;
+		}
+		.close {
+			margin-left: 0.5rem;
+			font-weight: 600;
+			color: lighten($black, 40%);
+			text-shadow: none;
+		}
+	}
+	.toast-body {
+		color: lighten($black, 40%);
+		font-size: 0.8rem;
+	}
+	&.danger {
+		background: $red;
+		.toast-header {
+			background: darken($red, 2%);
+			color: $white;
+			.close {
+				color: $white;
+			}
+		}
+		.toast-body {
+			color: $white;
+		}
+	}
+	&.info {
+		background: $blue;
+		.toast-header {
+			background: darken($blue, 2%);
+			color: $white;
+			.close {
+				color: $white;
+			}
+		}
+		.toast-body {
+			color: $white;
+		}
+	}
+	&.warning {
+		background: $yellow;
+		.toast-header {
+			background: darken($yellow, 2%);
+			color: $white;
+			.close {
+				color: $white;
+			}
+		}
+		.toast-body {
+			color: $white;
+		}
+	}
+	&.success {
+		background: $green;
+		.toast-header {
+			background: darken($green, 2%);
+			color: $white;
+			.close {
+				color: $white;
+			}
+		}
+		.toast-body {
+			color: $white;
+		}
+	}
+	// Positions
+	&.pos-top-right {
+		position: absolute;
+		top: 1rem;
+		right: 1rem;
+	}
+	&.pos-btm-right {
+		position: absolute;
+		bottom: 1rem;
+		right: 1rem;
+	}
+	&.pos-btm-left {
+		position: absolute;
+		bottom: 1rem;
+		left: 1rem;
+	}
+	&.pos-top-left {
+		position: absolute;
+		top: 1rem;
+		left: 1rem;
+	}
+}
+
+// Tables *************************
+.table {
+	background: $white;
+	color: lighten($black, 40%);
+	border: 0;
+	font-size: 0.775rem;
+	thead {
+		background: $primary-color;
+		color: $white;
+		th {
+			padding: 0.75rem;
+			font-weight: 600;
+			border: 0;
+		}
+	}
+	tbody tr:nth-of-type(even) {
+		background-color: $light-bg;
+	}
+	td {
+		vertical-align: middle;
+		padding: 0.5rem 0.75rem;
+		border: 0;
+	}
+}
+.table-success,
+.table-success > td,
+.table-success > th {
+	background: lighten($green, 45%);
+	border-color: lighten($green, 30%);
+	color: darken($green, 30%);
+}
+.table-danger,
+.table-danger > td,
+.table-danger > th {
+	background: lighten($red, 43%);
+	border-color: lighten($red, 38%);
+	color: darken($red, 30%);
+}
+.table-warning,
+.table-warning > td,
+.table-warning > th {
+	background: lighten($yellow, 30%);
+	border-color: lighten($yellow, 15%);
+	color: darken($yellow, 30%);
+}
+.table-info,
+.table-info > td,
+.table-info > th {
+	background: lighten($blue, 40%);
+	border-color: lighten($blue, 35%);
+	color: darken($blue, 30%);
+}
+
+// Tootltips *************************
+.tooltip {
+	font-size: 0.7rem;
+}
+.tooltip-inner {
+	@include roundedCorners(0);
+}
+
+// Row Gutters *************************
+.gutters {
+	margin-right: -8px;
+	margin-left: -8px;
+}
+.gutters > .col,
+.gutters > [class*="col-"] {
+	padding-right: 8px;
+	padding-left: 8px;
+}
+
+// Highlights *************************
+code {
+	color: $secondary-color;
+	word-break: break-word;
+}
